@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "Etemptation Utils",
+  "version": "1.0",
+  "description": "Fonctions personnalisées pour ESPACE-SA",
+  "host_permissions": ["http://*:8081/webquartz/*"],
+  "icons": {"128": "img/icon_128.png"},
+  "content_scripts": [{
+      "matches": ["http://*:8081/webquartz/*"],
+      "js": ["js/content.js"]
+    }
+  ],
+  "web_accessible_resources": [{
+    "resources": [
+      "js/app.js"
+    ],
+    "matches": ["http://*:8081/*"]
+  }]
+}
