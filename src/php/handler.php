@@ -13,7 +13,12 @@ function logEvent($platform, $text)
 }
 
 if($_GET['client']) {
-    $report = "";
+    $head = '';
+    if(isset($_SERVER['REMOTE_ADDR'])) {
+        $head = $_SERVER['REMOTE_ADDR'];
+    }
+
+    $report = $head . ' -> ';
     foreach ($_GET as $k => $v) {
         $report = $report . " " . $k . " => " . $v . " /";
     }

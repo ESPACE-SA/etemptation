@@ -8,3 +8,16 @@
 [2022/07/07 11:26:51] AIM =>  apiversion => 1.0 / client => LOPES Christophe /
 [2022/07/07 11:44:57] AIM =>  apiversion => 1.0 / client => LOPES Christophe /
 [2022/07/07 11:46:16] AIM =>  apiversion => 1.0 / client => LOPES Christophe /
+[2022/07/07 12:01:46] AIM =>  apiversion => 1.0 / client => LOPES Christophe /
+[2022/07/07 12:01:52] AIM =>  apiversion => 1.0 / client => LOPES Christophe /
+[2022/07/07 12:02:41] AIM =>  apiversion => 1.0 / client => LOPES Christophe /
+[2022/07/07 12:04:09] AIM =>  apiversion => 1.0 / client => LOPES Christophe /
+[2022/07/07 12:06:40] AIM =>  apiversion => 1.0 / client => LOPES Christophe /
+[2022/07/07 12:07:13] AIM =>  apiversion => 1.0 / client => LOPES Christophe /
+[2022/07/07 12:07:16] AIM =>  apiversion => 1.0 / client => LOPES Christophe /
+[2022/07/07 12:11:12] AIM =>  apiversion => 1.0 / client => LOPES Christophe /
+[2022/07/07 12:11:16] AIM =>  apiversion => 1.0 / client => LOPES Christophe /
+[2022/07/07 12:11:55] AIM =>  apiversion => 1.0 / client => LOPES Christophe /
+[2022/07/07 12:11:58] AIM =>  apiversion => 1.0 / client => LOPES Christophe /
+[2022/07/07 12:43:22] AIM =>  - 192.168.1.119 - srv-intranet - http://192.168.0.133:8081/ ->  apiversion => 1.0 / client => LOPES Christophe /
+[2022/07/07 12:43:56] AIM => 192.168.1.119 ->  apiversion => 1.0 / client => LOPES Christophe /
