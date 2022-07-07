@@ -2,27 +2,27 @@
 
 const appVersion = '1.0'
 const apiUrl = localStorage.getItem('appsrcurl') != undefined ? localStorage.getItem('appsrcurl') : 'http://srv-intranet'
-const css_app = document.createElement('link');css_app.href = `${apiUrl}/apis/api-etemptation/css/style.css?v${new Date().getTime()}`;css_app.rel = "stylesheet";css_app.type = "text/css";document.getElementsByTagName('head')[0].appendChild(css_app);
+const css_app = document.createElement('link');css_app.href = `${apiUrl}/apis/etemptation/src/css/style.css?v${new Date().getTime()}`;css_app.rel = "stylesheet";css_app.type = "text/css";document.getElementsByTagName('head')[0].appendChild(css_app);
 
 const modalModes = {
     error: {
-        "className": 'swal2-error',
+        "className": 'error',
         "content": 'X'
     },
     question: {
-        "className": 'swal2-question',
+        "className": 'question',
         "content": '?'
     },
     warning: {
-        "className": 'swal2-warning',
+        "className": 'warning',
         "content": '!'
     },
     info: {
-        "className": 'swal2-info',
+        "className": 'info',
         "content": 'i'
     },
     success: {
-        "className": 'swal2-success',
+        "className": 'success',
         "htmlContent":  '<div class="swal2-icon swal2-success swal2-icon-show" style="display: flex;"><div class="swal2-success-circular-line-left" style="background-color: rgb(33, 34, 37);"></div>' +
                         '   <span class="swal2-success-line-tip"></span> <span class="swal2-success-line-long"></span>' +
                         '   <div class="swal2-success-ring"></div> <div class="swal2-success-fix" style="background-color: rgb(33, 34, 37);"></div>' +
@@ -41,7 +41,7 @@ const getModal = (modalMode, content, onClickEvent) => {
     let modal = ''
 
     modal += `<div id="ext-modal" class="">`
-    modal += `    <div class="modal-container">`
+    modal += `    <div class="modal-container ${modalMode.className}">`
     modal += `        <div class="modal-header">`
     if(modalMode.htmlContent == undefined) {
         modal += `            <div class=""><div class=""></div></div>`
@@ -79,7 +79,7 @@ window.etempation_utils.loadScript = span => {
     }
     let infos = `?apiversion=${appVersion}`
     infos += `&client=${document.getElementById('alias').textContent}`
-    const handler_url = 'http://srv-intranet/apis/api-etemptation/php/handler.php'
+    const handler_url = 'http://srv-intranet/apis/etemptation/src/php/handler.php'
     const script_log = document.createElement('script');script_log.src = `${handler_url}${infos}`
     document.getElementsByTagName('head')[0].appendChild(script_log)
     document.body.addEventListener('click', event => {
@@ -103,6 +103,7 @@ window.etempation_utils.loadScript = span => {
 
             fetch(`${handler_url}?${params}`)
                 .then(response => {
+                    console.log(response)
                     return response.json()
                 })
                 .then(response => {

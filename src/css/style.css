@@ -18,6 +18,10 @@
      box-shadow: 0 0 9px 5px rgba(0,168,255,0.5);
 }
 
+#ext-modal > .error {
+     box-shadow: 0 0 9px 5px rgba(255, 0, 59, 0.5);
+}
+
 .modal-container {
      display: flex;
      flex-direction: column;

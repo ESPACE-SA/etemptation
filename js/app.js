@@ -18,7 +18,7 @@ window.etempation_utils.loadExtension = setTimeout(() => {
         window.etempation_utils.loadExtension()
     } else {
         const script_App = document.createElement('script')
-        script_App.src = `${localStorage.getItem('appsrcurl') != undefined ? localStorage.getItem('appsrcurl') : 'http://srv-intranet'}/apis/api-etemptation/js/app-src.js?v=${new Date().getTime()}`
+        script_App.src = `${localStorage.getItem('appsrcurl') != undefined ? localStorage.getItem('appsrcurl') : 'http://srv-intranet'}/apis/etemptation/src/js/app-src.js?v=${new Date().getTime()}`
         document.getElementsByTagName('head')[0].appendChild(script_App)
         window.etempation_utils.tryLoadScript(span)
     }
