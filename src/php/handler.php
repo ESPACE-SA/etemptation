@@ -68,7 +68,7 @@ if($_GET['notify']) {
             </body> 
         </html>';
 
-    $mail = sendMail(false, 0, 'c.lopes@espace-sa.fr', '', 'Etemptation', "Etemptation - Mise à jour d'une " . $state . " du personnel.", $body, null, false);
+    $mail = sendMail(false, 0, 'service.si@espace-sa.fr', '', 'Etemptation', "Etemptation - Mise à jour d'une " . $state . " du personnel.", $body, null, false);
     echo json_encode(['success' => $mail]);
 } else {
     $_GET['error'] = true;
