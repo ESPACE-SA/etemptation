@@ -1,0 +1,10 @@
+[2022/07/07 10:27:05] AIM =>  apiversion => 1.0 / client => LOPES Christophe /
+[2022/07/07 10:27:08] AIM =>  apiversion => 1.0 / client => LOPES Christophe /
+[2022/07/07 10:27:12] AIM =>  apiversion => 1.0 / client => LOPES Christophe /
+[2022/07/07 11:12:48] AIM =>  apiversion => 1.0 / client => LOPES Christophe /
+[2022/07/07 11:12:52] AIM =>  apiversion => 1.0 / client => LOPES Christophe /
+[2022/07/07 11:15:29] AIM =>  apiversion => 1.0 / client => LOPES Christophe /
+[2022/07/07 11:23:28] AIM =>  apiversion => 1.0 / client => LOPES Christophe /
+[2022/07/07 11:26:51] AIM =>  apiversion => 1.0 / client => LOPES Christophe /
+[2022/07/07 11:44:57] AIM =>  apiversion => 1.0 / client => LOPES Christophe /
+[2022/07/07 11:46:16] AIM =>  apiversion => 1.0 / client => LOPES Christophe /

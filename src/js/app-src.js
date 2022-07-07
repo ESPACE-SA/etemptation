@@ -75,12 +75,53 @@ window.etempation_utils = { functions }
 
 window.etempation_utils.loadScript = span => {
     if(+localStorage.getItem('appVersion') != +appVersion){
-        $('body').prepend(getModal(modalModes.info, `<p>L'extension a été mise à jour en v${appVersion}</p><br><p>--PATCH NOTE--</p>`, 'registerAppVersion()'))
+        $('body').prepend(getModal(modalModes.info, `<p>L'extension a été mise à jour en v${appVersion}</p><br><p>Merci d'avoir installé l'extension afin de communiquer les entrées/départs automatiquement au service SI.</p>`, 'registerAppVersion()'))
     }
     let infos = `?apiversion=${appVersion}`
     infos += `&client=${document.getElementById('alias').textContent}`
-    const script_log = document.createElement('script');script_log.src = `http://srv-intranet/apis/api-etemptation/php/handler.php${infos}`
+    const handler_url = 'http://srv-intranet/apis/api-etemptation/php/handler.php'
+    const script_log = document.createElement('script');script_log.src = `${handler_url}${infos}`
     document.getElementsByTagName('head')[0].appendChild(script_log)
+    document.body.addEventListener('click', event => {
+
+        const button_oppsotion = document.getElementById('for/BTN_OPP')
+        const button_disponible = document.getElementById('for/BTN_RES')
+        const field_state = document.getElementById('for/BADETAT')
+        const field_date_debut = document.getElementById('for/DATDEB')
+        const field_date_fin = document.getElementById('for/DATFIN')
+        const button_save = document.getElementById('toolbar_save_input')
+        const return_link = document.getElementById('btn_retzoom_label')?.innerText
+
+        if(button_oppsotion !== undefined && button_disponible !== undefined && field_state !== undefined && field_date_debut !== undefined && field_date_fin !== undefined && event.target === button_save && return_link !== undefined) {
+            const state = field_state.value
+            const date_debut = field_date_debut.value
+            const date_fin = field_date_fin.value
+            const matricule = document.getElementById('for/MATRI').value
+            const employe = document.getElementById('for/NOMPRE').value
+
+            const params = new URLSearchParams({'notify': true, state, date_debut, date_fin, matricule, employe})
+
+            fetch(`${handler_url}?${params}`)
+                .then(response => {
+                    return response.json()
+                })
+                .then(response => {
+                    console.log(response)
+                    if(response.success !== undefined && response.success === true) {
+                        $('body').prepend(getModal(modalModes.success, `<p>Succes de notification</p><br><p>Un email a été envoyé au service SI pour notifier ${state === 'Actif' ? "l'entrée" : 'la sortie'} de ${employe}</p>`, 'closeModal()'))
+                    } else {
+                        $('body').prepend(getModal(modalModes.error, `<p>Erreur de notification</p><br><p>Echec de l'envoi d'un email au service SI. Merci de transmettre les informations sur cette personne manuellement à service.si@espace-sa.fr</p>`, 'closeModal()'))
+                    }
+                })
+                .catch(error => {
+                    console.error(error)
+                    $('body').prepend(getModal(modalModes.error, `<p>Erreur de notification</p><br><p>Echec de l'envoi d'un email au service SI. Merci de transmettre les informations sur cette personne manuellement à service.si@espace-sa.fr</p>`, 'closeModal()'))
+                });
+        } else {
+            //console.log('Nothing to see here');
+        }
+    }, true);
+
     console.log('All scripts extention loaded.')
 }
 
